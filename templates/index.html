@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Material Sharing</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Peer-to-Peer Study Material Sharing System</h1>
+
+    <a href="{{ url_for('upload') }}">Upload Study Material</a>
+
+    <h2>Available Study Materials</h2>
+    <ul>
+        {% for material in materials %}
+            <li>
+                <strong>{{ material.title }}</strong> - {{ material.subject }}
+                [<a href="{{ url_for('download', filename=material.filename) }}">Download</a>]
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

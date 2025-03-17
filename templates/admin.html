@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Admin Panel - Manage Study Materials</h1>
+
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>File</th>
+        </tr>
+
+        {% for material in materials %}
+        <tr>
+            <td>{{ material.title }}</td>
+            <td>{{ material.subject }}</td>
+            <td><a href="{{ url_for('download', filename=material.filename) }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
